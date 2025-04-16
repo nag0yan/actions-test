@@ -1,0 +1,11 @@
+# https://taskfile.dev
+version: '3'
+tasks:
+  pc:
+    cmds:
+      - yamlfmt .
+      - actionlint
+      - gitleaks protect --staged . --no-banner
+  test:
+    cmds:
+      - if act workflow_dispatch -p=false; then echo "test passed"; else echo "test failed"; fi

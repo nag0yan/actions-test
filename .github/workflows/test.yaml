@@ -1,0 +1,10 @@
+name: Github Actions Test
+run-name: test
+on: #  yamllint disable-line rule:truthy
+  workflow_dispatch:
+jobs:
+  test:
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      name: "Github Actions Test"
+      environment: "Main"
