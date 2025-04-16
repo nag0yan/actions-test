@@ -11,7 +11,19 @@ on: #  yamllint disable-line rule:truthy
         required: false
         type: string
 jobs:
+  preprocess:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
+      - name: Preprocess
+        run: |
+          echo "Plan List"
+          echo "- Plan 1"
+          echo "- Plan 2"
+          echo "- Plan 3"
   greet:
+    needs: preprocess
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     steps:
