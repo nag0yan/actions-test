@@ -6,6 +6,8 @@ tasks:
       - yamlfmt .
       - actionlint
       - gitleaks protect --staged . --no-banner
-  test:
+  test-*:
+    vars:
+      EVENT: '{{index .MATCH 0}}'
     cmds:
-      - if act workflow_dispatch -p=false {{.CLI_ARGS}}; then echo "test passed"; else echo "test failed"; fi
+      - if act {{.EVENT}} --artifact-server-path=/tmp/artifacts -p=false {{.CLI_ARGS}}; then echo "test passed"; else echo "test failed"; fi
