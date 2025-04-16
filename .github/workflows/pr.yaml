@@ -12,6 +12,7 @@ jobs:
       - name: Make a tmp file
         run: |
           echo "This is a temporary file." > tmp.txt
-      - name: annotation
+      - name: Summary of job
         run: |
-          echo "::notice::file=tmp.txt,line=1,col=1::This is a notice message."
+          echo "##[group]Summary of job" >> "$GITHUB_STEP_SUMMARY"
+          cat tmp.txt >> "$GITHUB_STEP_SUMMARY"
