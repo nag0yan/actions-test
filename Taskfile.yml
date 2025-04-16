@@ -8,4 +8,4 @@ tasks:
       - gitleaks protect --staged . --no-banner
   test:
     cmds:
-      - if act workflow_dispatch -p=false; then echo "test passed"; else echo "test failed"; fi
+      - if act workflow_dispatch -p=false {{.CLI_ARGS}}; then echo "test passed"; else echo "test failed"; fi
