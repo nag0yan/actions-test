@@ -14,9 +14,9 @@ jobs:
           echo "This is a temporary file." > tmp.txt
       - name: Summary of job
         run: |
-          echo "##[group]Summary of job" >> "$GITHUB_STEP_SUMMARY"
+          echo "## [group]Summary of job" >> "$GITHUB_STEP_SUMMARY"
           cat tmp.txt >> "$GITHUB_STEP_SUMMARY"
       - name: Summary of job 2
         run: |
-          echo "##[group]Summary of job 2" >> "$GITHUB_STEP_SUMMARY"
+          echo "## [group]Summary of job 2" >> "$GITHUB_STEP_SUMMARY"
           cat tmp.txt >> "$GITHUB_STEP_SUMMARY"
