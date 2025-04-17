@@ -1,5 +1,5 @@
 name: Reusable Workflow
-on: #  yamllint disable-line rule:truthy
+on:
   workflow_call:
     inputs:
       name:

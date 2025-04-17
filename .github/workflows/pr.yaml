@@ -1,20 +1,17 @@
 name: PR Workflow
-on: #  yamllint disable-line rule:truthy
+on:
   pull_request:
     branches:
       - main
 jobs:
-  store-artifacts:
+  terraform-plan:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871 # v4.2.1
-      - name: Generate artifact
+      - name: Make a tmp file
         run: |
-          mkdir -p tmp
-          echo "Artifact" > tmp/artifact.txt
-      - name: Store artifacts
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: artifact-pr${{ github.event.pull_request.number }}
-          path: tmp/artifact.txt
+          echo "This is a temporary file." > tmp.txt
+      - name: Summary of job 2
+        run: |
+          cat plan-sample.md >> "$GITHUB_STEP_SUMMARY"
