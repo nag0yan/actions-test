@@ -21,5 +21,4 @@ jobs:
             -F ref=${{ github.ref_name }} \
             -F environment=production \
             -F description="Deployment triggered by push to main" \
-            -F auto_merge=false \
-            -F required_contexts=[]
+            -F auto_merge=false
