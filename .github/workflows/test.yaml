@@ -1,6 +1,6 @@
 name: Github Actions Test
 run-name: test
-on: #  yamllint disable-line rule:truthy
+on:
   workflow_dispatch:
 jobs:
   test:
